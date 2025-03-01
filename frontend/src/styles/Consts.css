@@ -1,0 +1,15 @@
+:root{
+    /*For change*/
+    --font-style: Amiri;
+
+    --font-size-title: 44px;
+    --font-size-button: 34px;
+    --font-size-input: 28px;
+
+    /*Witcher 3*/
+    --colour-text-primary: #324E63;
+    --colour-text-primary-hover: #95223B;
+    --colour-primary: #090A0E;
+    --colour-background: #5F8194;
+    --colour-white: #BDCAD2;
+}
