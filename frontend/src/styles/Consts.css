@@ -2,15 +2,15 @@
     /*For change*/
     --font-style: Amiri;
 
-    --font-size-subtitle: 46px;
+    --font-size-subtitle: 40px;
     --font-size-title: 60px;
     --font-size-edit: 24px;
-    --font-size-data: 30px;
+    --font-size-data: 36px;
 
     /*Witcher 3*/
-    --colour-borde: #324E63;
+    --colour-choice: #324E63;
     --colour-border: #95223B;
     --colour-background: #090A0E;
     --colour-text: #5F8194;
-    --colour-white: #BDCAD2;
+    --colour-hover: #BDCAD2;
 }

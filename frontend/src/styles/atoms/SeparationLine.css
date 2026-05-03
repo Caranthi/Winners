@@ -1,0 +1,8 @@
+@import '../Consts.css';
+
+.SeparationLine{
+    display: flex;
+    width: 100%;
+    border-top: 2px dashed var(--colour-border);
+    margin: 20px 0;
+}

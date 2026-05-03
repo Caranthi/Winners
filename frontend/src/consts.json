@@ -1,7 +1,16 @@
 {
+    "CONSTS": {
+        "TITLE": "BEST OF THE YEAR"
+    },
     "VARIABLES":{
         "YEARS": [
             2018, 2019, 2020, 2021, 2022, 2023, 2024, 2025, 2026
+        ],
+        "CATEGORIES": [
+            "book", "song", "series", "series_music", "movie", "movie_music", "cine_performance", "purr_cinema", "game_visuals", "sound_design", "game_performance", "game", "game_music"
+        ],
+        "CATEGORIES_PL":[
+            "Książka", "Piosenka", "Serial", "Muzyka Serialowa", "Film", "Muzyka Filmowa", "Performance Kinematograficzny", "Purr Cinema", "Zachwyt wizualny", "Sound Design", "Performance growy", "Gra", "Muzyka growa"
         ]
     }
 }

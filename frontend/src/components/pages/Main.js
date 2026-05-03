@@ -5,11 +5,10 @@ import '../../styles/pages/Main.css';
 import Choice from "../organisms/Choice";
 const Main = () =>
 {
-    const titleText = 'BEST OF THE YEAR';
 
     return (
         <div className="Main">
-            <a className="title">{titleText}</a>
+            <a className="title">{consts.CONSTS.TITLE}</a>
             <div className="choice">
                 <Choice value="R"/>
                 <Choice value="M"/>
