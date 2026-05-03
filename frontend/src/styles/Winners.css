@@ -1,0 +1,6 @@
+@import './Consts.css';
+
+.Winners{
+    font-family: var(--font-style);
+    background-color: var(--colour-background);
+}

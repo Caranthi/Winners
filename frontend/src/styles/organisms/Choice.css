@@ -1,0 +1,11 @@
+@import '../Consts.css';
+
+.Choice{
+    display: flex;
+    flex-direction: column;
+    border: solid;
+    border-color: var(--colour-border);
+    border-radius: 15%;
+    height: 100%;
+    width: 49%;
+}

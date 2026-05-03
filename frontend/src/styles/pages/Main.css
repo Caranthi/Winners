@@ -1,0 +1,25 @@
+@import '../Consts.css';
+
+.Main{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh;
+    width: 100vw;
+}
+
+.title{
+    font-size: var(--font-size-title);
+    color: var(--colour-text);
+    text-align: center;
+    margin-top: 0.5%;
+}
+
+.choice{
+    display: flex;
+    flex-direction: row;
+    margin-top: 2.5%;
+    height: 75%;
+    width: 85%;
+    justify-content: space-between;
+}
