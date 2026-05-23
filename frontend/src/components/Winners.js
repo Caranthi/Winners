@@ -11,7 +11,7 @@ const Winners = () => {
             element: <Main />
         },
         {
-            path: '/categories/:year',
+            path: '/categories/:person/:year',
             element: <Categories/>
         }
     ]);

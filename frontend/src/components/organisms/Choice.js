@@ -25,7 +25,7 @@ const Choice = ({value}) => {
         <div className="Choice">
             <a className="title">{value}</a>
             {years.map(yearsSlice => (
-                <TileRow years={yearsSlice} key={yearsSlice}/>
+                <TileRow years={yearsSlice} key={yearsSlice} person={value}/>
             ))}
         </div>
     );

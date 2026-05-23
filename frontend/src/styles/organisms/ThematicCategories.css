@@ -9,6 +9,7 @@
 }
 
 .subTitle{
-    font-size: var(--font-size-data);
+    font-size: var(--font-size-edit);
     color: var(--colour-text);
+    margin-top: -1%;
 }

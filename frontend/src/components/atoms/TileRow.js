@@ -3,13 +3,13 @@ import consts from '../../consts.json';
 import Tile from './Tile.js';
 
 import '../../styles/atoms/TileRow.css';
-const TileRow = ({years}) => {
+const TileRow = ({years, person}) => {
 
     return(
 
         <div className="TileRow">
             {years.map(year => (
-                <Tile value={year} key={year}/>
+                <Tile value={year} key={year} person={person}/>
             ))}
         </div>
     );
