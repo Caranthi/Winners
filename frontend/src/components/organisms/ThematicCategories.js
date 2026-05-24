@@ -3,6 +3,7 @@ import consts from '../../consts.json';
 import SeparationLine from '../atoms/SeparationLine.js';
 
 import '../../styles/organisms/ThematicCategories.css';
+import Thumbnail from "../atoms/Thumbnail.js";
 const ThematicCategories = ({year, title, categories}) => {
 
     return(
@@ -10,6 +11,7 @@ const ThematicCategories = ({year, title, categories}) => {
         <div className="ThematicCategories">
             <SeparationLine/>
             <a className="subTitle">{title}</a>
+            <Thumbnail/>
         </div>
     );
 };
