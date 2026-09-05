@@ -2,4 +2,29 @@
 
 .Thumbnail {
     display: flex;
+    flex-direction: column;
+    width: 10%;
+    align-items: center;
+    text-align: center;
+    font-size: var(--font-size-label);
+    cursor: pointer;
+    color: var(--colour-text);
+}
+
+.image {
+    width: 75%;
+    height: 100px;
+    border-radius: 1.5%;
+}
+
+.label {
+    border: solid;
+    width: 85%;
+    height: 20px;
+    border-radius: 1%;
+    margin-top: 0%;
+}
+
+.Thumbnail:hover {
+    color: var(--colour-white);
 }
