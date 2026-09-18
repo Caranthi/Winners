@@ -9,11 +9,12 @@
     font-size: var(--font-size-label);
     cursor: pointer;
     color: var(--colour-text);
+    margin-top: 1%;
 }
 
 .image {
-    width: 75%;
-    height: 100px;
+    width: 78%;
+    height: 110px;
     border-radius: 1.5%;
 }
 

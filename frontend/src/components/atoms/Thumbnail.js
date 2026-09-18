@@ -1,14 +1,13 @@
 import React from "react";
+import consts from '../../consts.json';
 
 import '../../styles/atoms/Thumbnail.css';
-const Thumbnail = ({person, year}) =>
+const Thumbnail = ({person, year, category}) =>
 {
-    let testTitle = 'tmp';
-
     return(
         <div className="Thumbnail">
-            <img className="image" src="/images/R/book/2018.jpg" alt="" />
-            <p className="label">{testTitle}</p>
+            <img className="image" src={`/images/${person}/${year}/${category}.jpg`} alt="" />
+            <p className="label">{consts.VARIABLES.CATEGORY_LABELS[category]}</p>
         </div>
     );
 };

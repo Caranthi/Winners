@@ -2,15 +2,51 @@
     "CONSTS": {
         "TITLE": "BEST OF THE YEAR"
     },
-    "VARIABLES":{
+    "VARIABLES": {
         "YEARS": [
-            2018, 2019, 2020, 2021, 2022, 2023, 2024, 2025, 2026
+            2018,
+            2019,
+            2020,
+            2021,
+            2022,
+            2023,
+            2024,
+            2025,
+            2026
         ],
-        "CATEGORIES": [
-            "book", "song", "series", "series_music", "movie", "movie_music", "cine_performance", "purr_cinema", "game_visuals", "sound_design", "game_performance", "game", "game_music"
+        "GAMING_CATEGORIES": [
+            "game_visuals",
+            "sound_design",
+            "game_performance",
+            "game",
+            "game_music"
         ],
-        "CATEGORIES_PL":[
-            "Książka", "Piosenka", "Serial", "Muzyka Serialowa", "Film", "Muzyka Filmowa", "Performance Kinematograficzny", "Purr Cinema", "Zachwyt wizualny", "Sound Design", "Performance growy", "Gra", "Muzyka growa"
-        ]
+        "CINEMA_CATEGORIES": [
+            "series",
+            "series_music",
+            "movie",
+            "movie_music",
+            "cine_performance",
+            "purr_cinema"
+        ],
+        "OTHER_CATEGORIES": [
+            "book",
+            "song"
+        ],
+        "CATEGORY_LABELS": {
+            "game_visuals": "Zachwyt wizualny",
+            "sound_design": "Sound design",
+            "game_performance": "Rola growa",
+            "game": "Gra",
+            "game_music": "Muzyka z gry",
+            "series": "Serial",
+            "series_music": "Muzyka z serialu",
+            "movie": "Film",
+            "movie_music": "Muzyka z filmu",
+            "cine_performance": "Rola aktorska",
+            "purr_cinema": "Purr Cinema",
+            "book": "Książka",
+            "song": "Piosenka"
+        }
     }
 }

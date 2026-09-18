@@ -1,6 +1,6 @@
 @import '../Consts.css';
 
-.Tile{
+.Tile {
     display: flex;
     color: var(--colour-hover);
     font-size: var(--font-size-data);
@@ -15,6 +15,6 @@
     cursor: pointer;
 }
 
-.Tile:hover{
+.Tile:hover {
     color: var(--colour-text);
 }

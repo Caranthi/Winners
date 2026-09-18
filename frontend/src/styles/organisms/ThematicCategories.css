@@ -1,6 +1,6 @@
 @import '../Consts.css';
 
-.ThematicCategories{
+.ThematicCategories {
     display: flex;
     flex-direction: column;
     width: 100%;
@@ -8,8 +8,15 @@
     align-items: center;
 }
 
-.subTitle{
+.subTitle {
     font-size: var(--font-size-edit);
     color: var(--colour-text);
     margin-top: -1%;
+}
+
+.thumbnailRow {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: center;
 }
