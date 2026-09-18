@@ -33,6 +33,19 @@ const WinnerDetails = () => {
         return null;
     }
 
+    const getYoutubeEmbedUrl = (url) => {
+        try {
+            const parsed = new URL(url);
+            if (parsed.hostname.includes("youtu.be")) {
+                return `https://www.youtube.com/embed${parsed.pathname}`;
+            }
+            const videoId = parsed.searchParams.get("v");
+            return videoId ? `https://www.youtube.com/embed/${videoId}` : null;
+        } catch {
+            return null;
+        }
+    };
+
     const handleFileChange = (e) => {
         const file = e.target.files[0];
         e.target.value = "";
@@ -71,14 +84,26 @@ const WinnerDetails = () => {
                     onChange={handleFileChange}
                 />
                 <div className="details">
-                    <AddField className="description" value={winner.description} placeholder="Dodaj opis" multiline onSave={(value) => saveField("description", value)} />
+                    {category !== "song" && (
+                        <AddField className="description" value={winner.description} placeholder="Dodaj opis" multiline onSave={(value) => saveField("description", value)} />
+                    )}
                     {winner.url
-                        ? (
-                            <p className="urlRow">
-                                {urlSource && <span className="urlSource">{urlSource}</span>}
-                                <a className="url" href={winner.url} target="_blank" rel="noreferrer">{winner.url}</a>
-                            </p>
-                        )
+                        ? category === "song"
+                            ? (
+                                <iframe
+                                    className="youtube"
+                                    src={getYoutubeEmbedUrl(winner.url)}
+                                    title={winner.title}
+                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                    allowFullScreen
+                                />
+                            )
+                            : (
+                                <p className="urlRow">
+                                    {urlSource && <span className="urlSource">{urlSource}</span>}
+                                    <a className="url" href={winner.url} target="_blank" rel="noreferrer">{winner.url}</a>
+                                </p>
+                            )
                         : <AddField className="url" placeholder="Dodaj link" onSave={(value) => saveField("url", value)} />}
                 </div>
             </div>

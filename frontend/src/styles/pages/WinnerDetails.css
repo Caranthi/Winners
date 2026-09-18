@@ -42,6 +42,10 @@
     width: 45%;
 }
 
+.details > :first-child {
+    margin-top: 0;
+}
+
 .description {
     font-size: var(--font-size-category);
     color: var(--colour-text);
@@ -68,4 +72,12 @@
 
 .url:hover {
     color: var(--colour-hover);
+}
+
+.youtube {
+    width: 100%;
+    height: 250px;
+    margin-top: 5%;
+    border: none;
+    border-radius: 1.5%;
 }
