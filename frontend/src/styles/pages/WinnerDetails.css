@@ -40,7 +40,6 @@
     display: flex;
     flex-direction: column;
     width: 45%;
-    gap: 5%;
 }
 
 .description {
@@ -50,9 +49,20 @@
     cursor: pointer;
 }
 
-.url {
-    font-size: var(--font-size-label);
+.urlRow,
+.AddField.url {
+    margin-top: 5%;
+}
+
+.urlSource {
+    font-weight: bold;
+    font-size: var(--font-size-category);
     color: var(--colour-text);
+}
+
+.url {
+    font-size: var(--font-size-category);
+    color: var(--colour-border);
     word-break: break-all;
 }
 

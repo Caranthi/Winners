@@ -9,6 +9,7 @@ const WinnerDetails = () => {
     const [winner, setWinner] = useState(null);
     const [imageVersion, setImageVersion] = useState(0);
     const fileInputRef = useRef(null);
+    const urlSource = category === "book" ? "Link do Lubimy Czytać: " : "";
 
     const apiUrl = `http://localhost:3001/${person.toLowerCase()}/${category}/${year}`;
 
@@ -72,7 +73,12 @@ const WinnerDetails = () => {
                 <div className="details">
                     <AddField className="description" value={winner.description} placeholder="Dodaj opis" multiline onSave={(value) => saveField("description", value)} />
                     {winner.url
-                        ? <a className="url" href={winner.url} target="_blank" rel="noreferrer">{winner.url}</a>
+                        ? (
+                            <p className="urlRow">
+                                {urlSource && <span className="urlSource">{urlSource}</span>}
+                                <a className="url" href={winner.url} target="_blank" rel="noreferrer">{winner.url}</a>
+                            </p>
+                        )
                         : <AddField className="url" placeholder="Dodaj link" onSave={(value) => saveField("url", value)} />}
                 </div>
             </div>
