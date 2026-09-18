@@ -7,6 +7,7 @@ const app = express();
 const PORT = 3001;
 const DATA = "./data.json";
 
+app.use(cors());
 app.use(express.json());
 
 const readData = () => {
@@ -20,6 +21,18 @@ const writeData = (data) => {
 app.get("/:mode/:category", (req, res) =>{
     const data = readData();
     res.json(data[req.params.mode][req.params.category]);
+});
+app.get("/:mode/:category/:year", (req, res) => {
+    const data = readData();
+    const entry = data[req.params.mode]?.[req.params.category]?.find(
+        (object) => String(object.year) === req.params.year
+    );
+
+    if (!entry) {
+        return res.status(404).json({ message: "Not found" });
+    }
+
+    res.json(entry);
 });
 app.post("/addYear/:year", (req, res) => {
     const data = readData();

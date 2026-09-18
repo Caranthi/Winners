@@ -1,0 +1,36 @@
+@import '../Consts.css';
+
+.WinnerDetails {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh;
+    width: 100vw;
+}
+
+.title {
+    font-size: var(--font-size-title);
+    color: var(--colour-text);
+    text-align: center;
+    margin-top: 0.5%;
+}
+
+.content {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    margin-top: 2.5%;
+    width: 85%;
+    justify-content: space-between;
+}
+
+.detailsImage {
+    width: 45%;
+    border-radius: 1.5%;
+}
+
+.description {
+    width: 45%;
+    font-size: var(--font-size-data);
+    color: var(--colour-text);
+}

@@ -1,10 +1,17 @@
 import React from "react";
 import consts from '../../consts.json';
+import { useNavigate } from "react-router-dom";
 
 import '../../styles/atoms/Thumbnail.css';
 const Thumbnail = ({ person, year, category, small }) => {
+    const navigate = useNavigate();
+
+    const moveToDetails = () => {
+        navigate(`/details/${person}/${year}/${category}`);
+    };
+
     return (
-        <div className="Thumbnail">
+        <div className="Thumbnail" onClick={moveToDetails}>
             <img
                 className={`image${small ? " small" : ""}`}
                 src={`/images/${person}/${year}/${category}.jpg`}
