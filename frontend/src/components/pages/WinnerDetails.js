@@ -32,9 +32,7 @@ const WinnerDetails = () => {
 
     return (
         <div className="WinnerDetails">
-            {winner.title
-                ? <a className="title">{winner.title}</a>
-                : <AddField className="title" placeholder="Dodaj tytuł" onSave={(value) => saveField("title", value)} />}
+            <AddField className="title" value={winner.title} placeholder="Dodaj tytuł" onSave={(value) => saveField("title", value)} />
             <div className="content">
                 <img
                     className="detailsImage"
@@ -46,9 +44,7 @@ const WinnerDetails = () => {
                     }}
                 />
                 <div className="details">
-                    {winner.description
-                        ? <p className="description">{winner.description}</p>
-                        : <AddField className="description" placeholder="Dodaj opis" multiline onSave={(value) => saveField("description", value)} />}
+                    <AddField className="description" value={winner.description} placeholder="Dodaj opis" multiline onSave={(value) => saveField("description", value)} />
                     {winner.url
                         ? <a className="url" href={winner.url} target="_blank" rel="noreferrer">{winner.url}</a>
                         : <AddField className="url" placeholder="Dodaj link" onSave={(value) => saveField("url", value)} />}

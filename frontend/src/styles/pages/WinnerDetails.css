@@ -13,6 +13,7 @@
     color: var(--colour-text);
     text-align: center;
     margin-top: 1%;
+    cursor: pointer;
 }
 
 .content {
@@ -40,6 +41,8 @@
 .description {
     font-size: var(--font-size-category);
     color: var(--colour-text);
+    margin-top: 0;
+    cursor: pointer;
 }
 
 .url {

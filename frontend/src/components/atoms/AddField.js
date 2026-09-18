@@ -1,14 +1,20 @@
 import React, { useState } from "react";
 
 import '../../styles/atoms/AddField.css';
-const AddField = ({ placeholder, onSave, className, multiline }) => {
+const AddField = ({ value, placeholder, onSave, className, multiline }) => {
     const [editing, setEditing] = useState(false);
-    const [draft, setDraft] = useState("");
+    const [draft, setDraft] = useState(value || "");
+
+    const startEditing = () => {
+        setDraft(value || "");
+        setEditing(true);
+    };
 
     const save = () => {
         setEditing(false);
-        if (draft.trim()) {
-            onSave(draft.trim());
+        const trimmed = draft.trim();
+        if (trimmed && trimmed !== value) {
+            onSave(trimmed);
         }
     };
 
@@ -33,8 +39,16 @@ const AddField = ({ placeholder, onSave, className, multiline }) => {
         );
     }
 
+    if (value) {
+        return (
+            <a className={className} onClick={startEditing}>
+                {value}
+            </a>
+        );
+    }
+
     return (
-        <a className={`AddField placeholder ${className}`} onClick={() => setEditing(true)}>
+        <a className={`AddField placeholder ${className}`} onClick={startEditing}>
             + {placeholder}
         </a>
     );
