@@ -4,7 +4,7 @@ import SeparationLine from '../atoms/SeparationLine.js';
 
 import '../../styles/organisms/ThematicCategories.css';
 import Thumbnail from "../atoms/Thumbnail.js";
-const ThematicCategories = ({ year, person, title, categories }) => {
+const ThematicCategories = ({ year, person, title, categories, smallThumbnails }) => {
 
     return (
 
@@ -13,7 +13,7 @@ const ThematicCategories = ({ year, person, title, categories }) => {
             <a className="subTitle">{title}</a>
             <div className="thumbnailRow">
                 {categories.map((category) => (
-                    <Thumbnail key={category} year={year} person={person} category={category} />
+                    <Thumbnail key={category} year={year} person={person} category={category} small={smallThumbnails} />
                 ))}
             </div>
         </div>

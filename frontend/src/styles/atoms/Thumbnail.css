@@ -18,6 +18,11 @@
     border-radius: 1.5%;
 }
 
+.image.small {
+    height: 100px;
+    width: 60%;
+}
+
 .label {
     border: solid;
     width: 85%;

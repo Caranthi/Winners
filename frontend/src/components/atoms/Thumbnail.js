@@ -2,11 +2,11 @@ import React from "react";
 import consts from '../../consts.json';
 
 import '../../styles/atoms/Thumbnail.css';
-const Thumbnail = ({ person, year, category }) => {
+const Thumbnail = ({ person, year, category, small }) => {
     return (
         <div className="Thumbnail">
             <img
-                className="image"
+                className={`image${small ? " small" : ""}`}
                 src={`/images/${person}/${year}/${category}.jpg`}
                 alt=""
                 onError={(e) => {

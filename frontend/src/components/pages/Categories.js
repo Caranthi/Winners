@@ -20,7 +20,7 @@ const Categories = () => {
             <a className="title">{consts.CONSTS.TITLE}</a>
             <ThematicCategories year={year} person={person} title={gamingTitle} categories={gamingCategories} />
             <ThematicCategories year={year} person={person} title={cinemaTitle} categories={cinemaCategories} />
-            <ThematicCategories year={year} person={person} title={otherTitle} categories={otherCategories} />
+            <ThematicCategories year={year} person={person} title={otherTitle} categories={otherCategories} smallThumbnails />
         </div>
     );
 };
