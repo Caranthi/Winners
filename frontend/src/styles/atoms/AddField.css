@@ -1,0 +1,21 @@
+@import '../Consts.css';
+
+.AddField.placeholder {
+    color: var(--colour-choice);
+    cursor: pointer;
+    font-style: italic;
+}
+
+.AddField.placeholder:hover {
+    color: var(--colour-hover);
+}
+
+input.AddField,
+textarea.AddField {
+    font-family: var(--font-style);
+    background-color: var(--colour-background);
+    color: var(--colour-text);
+    border: solid 1px var(--colour-border);
+    border-radius: 1%;
+    padding: 1%;
+}

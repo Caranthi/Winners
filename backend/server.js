@@ -56,20 +56,21 @@ app.post("/addYear/:year", (req, res) => {
 });
 app.put("/:mode/:category/:year", (req, res) => {
     const data = readData();
-    const index = data[req.params.mode][req.params.category].findIndex(object => object.year === req.params.year);
+    const list = data[req.params.mode]?.[req.params.category];
+    const index = list?.findIndex(object => String(object.year) === req.params.year);
 
-    if (index === -1)
+    if (index === undefined || index === -1)
     {
         return res.status(404).json({message: "Not found"});
     }
 
-    data[req.params.mode][req.params.category][req.params.year] = {
-        ...data[req.params.mode][req.params.category][req.params.year],
+    list[index] = {
+        ...list[index],
         ...req.body
     };
 
     writeData(data);
-    res.json([req.params.mode][req.params.category][req.params.year]);
+    res.json(list[index]);
 });
 
 app.listen(PORT, () => {
