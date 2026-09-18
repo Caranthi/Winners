@@ -3,18 +3,18 @@
 .Thumbnail {
     display: flex;
     flex-direction: column;
-    width: 10%;
+    width: 12%;
     align-items: center;
     text-align: center;
     font-size: var(--font-size-label);
     cursor: pointer;
     color: var(--colour-text);
-    margin-top: 1%;
+    margin-top: 0.9%;
 }
 
 .image {
-    width: 78%;
-    height: 110px;
+    width: 72%;
+    height: 120px;
     border-radius: 1.5%;
 }
 
