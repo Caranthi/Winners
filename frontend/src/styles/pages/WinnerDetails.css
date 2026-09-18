@@ -29,6 +29,11 @@
     width: 45%;
     border-radius: 1.5%;
     height: 500px;
+    cursor: pointer;
+}
+
+.imageUpload {
+    display: none;
 }
 
 .details {

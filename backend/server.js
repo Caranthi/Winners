@@ -1,11 +1,15 @@
 const express = require("express");
 const fs = require("fs");
+const path = require("path");
 const cors = require("cors");
+const multer = require("multer");
 const { title } = require("process");
 
 const app = express();
 const PORT = 3001;
 const DATA = "./data.json";
+const IMAGES_DIR = path.join(__dirname, "../frontend/public/images");
+const upload = multer({ storage: multer.memoryStorage() });
 
 app.use(cors());
 app.use(express.json());
@@ -33,6 +37,17 @@ app.get("/:mode/:category/:year", (req, res) => {
     }
 
     res.json(entry);
+});
+app.post("/upload/:person/:category/:year", upload.single("image"), (req, res) => {
+    if (!req.file) {
+        return res.status(400).json({ message: "No image provided" });
+    }
+
+    const dir = path.join(IMAGES_DIR, req.params.person, req.params.year);
+    fs.mkdirSync(dir, { recursive: true });
+    fs.writeFileSync(path.join(dir, `${req.params.category}.jpg`), req.file.buffer);
+
+    res.status(201).json({ message: "Uploaded" });
 });
 app.post("/addYear/:year", (req, res) => {
     const data = readData();

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { useParams } from "react-router-dom";
 import consts from '../../consts.json';
 import AddField from "../atoms/AddField.js";
@@ -7,6 +7,8 @@ import '../../styles/pages/WinnerDetails.css';
 const WinnerDetails = () => {
     const { person, year, category } = useParams();
     const [winner, setWinner] = useState(null);
+    const [imageVersion, setImageVersion] = useState(0);
+    const fileInputRef = useRef(null);
 
     const apiUrl = `http://localhost:3001/${person.toLowerCase()}/${category}/${year}`;
 
@@ -30,18 +32,42 @@ const WinnerDetails = () => {
         return null;
     }
 
+    const handleFileChange = (e) => {
+        const file = e.target.files[0];
+        e.target.value = "";
+        if (!file) {
+            return;
+        }
+
+        const formData = new FormData();
+        formData.append("image", file);
+
+        fetch(`http://localhost:3001/upload/${person}/${category}/${year}`, {
+            method: "POST",
+            body: formData
+        }).then(() => setImageVersion((version) => version + 1));
+    };
+
     return (
         <div className="WinnerDetails">
             <AddField className="title" value={winner.title} placeholder="Dodaj tytuł" onSave={(value) => saveField("title", value)} />
             <div className="content">
                 <img
                     className="detailsImage"
-                    src={`/images/${person}/${year}/${category}.jpg`}
+                    src={`/images/${person}/${year}/${category}.jpg?v=${imageVersion}`}
                     alt=""
+                    onClick={() => fileInputRef.current?.click()}
                     onError={(e) => {
                         e.target.onerror = null;
                         e.target.src = "/images/placeholder.jpg";
                     }}
+                />
+                <input
+                    className="imageUpload"
+                    type="file"
+                    accept="image/*"
+                    ref={fileInputRef}
+                    onChange={handleFileChange}
                 />
                 <div className="details">
                     <AddField className="description" value={winner.description} placeholder="Dodaj opis" multiline onSave={(value) => saveField("description", value)} />
