@@ -14,13 +14,13 @@
 
 .image {
     width: 72%;
-    height: 120px;
+    height: 130px;
     border-radius: 1.5%;
 }
 
 .image.small {
-    height: 100px;
-    width: 60%;
+    height: 125px;
+    width: 65%;
 }
 
 .label {
