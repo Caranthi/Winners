@@ -10,6 +10,9 @@ const WinnerDetails = () => {
     const [imageVersion, setImageVersion] = useState(0);
     const fileInputRef = useRef(null);
     const urlSource = category === "book" ? "Link do Lubimy Czytać: " : "";
+    const videoCategories = ["song", "game", "game_music", "sound_design"];
+    const isVideoCategory = videoCategories.includes(category);
+    const showDescription = category !== "song";
 
     const apiUrl = `http://localhost:3001/${person.toLowerCase()}/${category}/${year}`;
 
@@ -84,11 +87,11 @@ const WinnerDetails = () => {
                     onChange={handleFileChange}
                 />
                 <div className={`details${category === "song" ? " centeredDetails" : ""}`}>
-                    {category !== "song" && (
+                    {showDescription && (
                         <AddField className="description" value={winner.description} placeholder="Dodaj opis" multiline onSave={(value) => saveField("description", value)} />
                     )}
                     {winner.url
-                        ? category === "song"
+                        ? isVideoCategory
                             ? (
                                 <iframe
                                     className="youtube"

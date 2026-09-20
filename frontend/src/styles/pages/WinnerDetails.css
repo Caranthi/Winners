@@ -58,7 +58,8 @@
 }
 
 .urlRow,
-.AddField.url {
+.AddField.url,
+.youtube {
     margin-top: 5%;
 }
 
