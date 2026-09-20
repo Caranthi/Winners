@@ -12,8 +12,12 @@ const WinnerDetails = () => {
     const [actorVersion, setActorVersion] = useState(0);
     const [composerVersion, setComposerVersion] = useState(0);
     const [musicVersion, setMusicVersion] = useState(0);
+    const [extraImageVersion, setExtraImageVersion] = useState(0);
     const fileInputRef = useRef(null);
     const musicInputRef = useRef(null);
+    const extraImageInputRef = useRef(null);
+    const extraImageCategories = ["game_visuals"];
+    const isExtraImageCategory = extraImageCategories.includes(category);
     const musicCategories = ["game", "game_music", "movie", "movie_music", "series", "series_music"];
     const hasMusic = musicCategories.includes(category);
     const filmwebCategories = ["movie", "series", "purr_cinema"];
@@ -158,24 +162,52 @@ const WinnerDetails = () => {
                                 onUpload={(file) => uploadImage(file, "kompozytor", () => setComposerVersion((v) => v + 1))}
                             />
                         )
-                        : winner.url
-                            ? isVideoCategory
-                                ? (
-                                    <iframe
-                                        className="youtube"
-                                        src={getYoutubeEmbedUrl(winner.url)}
-                                        title={winner.title}
-                                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                                        allowFullScreen
+                        : isExtraImageCategory
+                            ? (
+                                <>
+                                    <img
+                                        className="extraImage"
+                                        src={`/images/${person}/${year}/${category}_extra.jpg?v=${extraImageVersion}`}
+                                        alt=""
+                                        onClick={() => extraImageInputRef.current?.click()}
+                                        onError={(e) => {
+                                            e.target.onerror = null;
+                                            e.target.src = "/images/placeholder.jpg";
+                                        }}
                                     />
-                                )
-                                : (
-                                    <p className="urlRow">
-                                        {urlSource && <span className="urlSource">{urlSource}</span>}
-                                        <a className="url" href={winner.url} target="_blank" rel="noreferrer">{winner.url}</a>
-                                    </p>
-                                )
-                            : <AddField className="url" placeholder="Dodaj link" onSave={(value) => saveField("url", value)} />}
+                                    <input
+                                        className="imageUpload"
+                                        type="file"
+                                        accept="image/*"
+                                        ref={extraImageInputRef}
+                                        onChange={(e) => {
+                                            const file = e.target.files[0];
+                                            e.target.value = "";
+                                            if (file) {
+                                                uploadImage(file, "extra", () => setExtraImageVersion((v) => v + 1));
+                                            }
+                                        }}
+                                    />
+                                </>
+                            )
+                            : winner.url
+                                ? isVideoCategory
+                                    ? (
+                                        <iframe
+                                            className="youtube"
+                                            src={getYoutubeEmbedUrl(winner.url)}
+                                            title={winner.title}
+                                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                            allowFullScreen
+                                        />
+                                    )
+                                    : (
+                                        <p className="urlRow">
+                                            {urlSource && <span className="urlSource">{urlSource}</span>}
+                                            <a className="url" href={winner.url} target="_blank" rel="noreferrer">{winner.url}</a>
+                                        </p>
+                                    )
+                                : <AddField className="url" placeholder="Dodaj link" onSave={(value) => saveField("url", value)} />}
                 </div>
             </>
         );
