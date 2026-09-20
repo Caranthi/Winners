@@ -9,6 +9,7 @@ const app = express();
 const PORT = 3001;
 const DATA = "./data.json";
 const IMAGES_DIR = path.join(__dirname, "../frontend/public/images");
+const MUSIC_DIR = path.join(__dirname, "../frontend/public/music");
 const upload = multer({ storage: multer.memoryStorage() });
 
 app.use(cors());
@@ -55,6 +56,17 @@ const handleUpload = (req, res) => {
 };
 app.post("/upload/:person/:category/:year", upload.single("image"), handleUpload);
 app.post("/upload/:person/:category/:year/:variant", upload.single("image"), handleUpload);
+app.post("/uploadMusic/:person/:category/:year", upload.single("music"), (req, res) => {
+    if (!req.file) {
+        return res.status(400).json({ message: "No music provided" });
+    }
+
+    const dir = path.join(MUSIC_DIR, req.params.person, req.params.year);
+    fs.mkdirSync(dir, { recursive: true });
+    fs.writeFileSync(path.join(dir, `${req.params.category}.mp3`), req.file.buffer);
+
+    res.status(201).json({ message: "Uploaded" });
+});
 app.post("/addYear/:year", (req, res) => {
     const data = readData();
 

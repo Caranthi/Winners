@@ -11,7 +11,11 @@ const WinnerDetails = () => {
     const [imageVersion, setImageVersion] = useState(0);
     const [actorVersion, setActorVersion] = useState(0);
     const [composerVersion, setComposerVersion] = useState(0);
+    const [musicVersion, setMusicVersion] = useState(0);
     const fileInputRef = useRef(null);
+    const musicInputRef = useRef(null);
+    const musicCategories = ["game", "game_music", "movie", "movie_music", "series", "series_music"];
+    const hasMusic = musicCategories.includes(category);
     const filmwebCategories = ["movie", "series", "purr_cinema"];
     const urlSource = category === "book"
         ? "Link do Lubimy Czytać: "
@@ -78,6 +82,22 @@ const WinnerDetails = () => {
         }
 
         uploadImage(file, undefined, () => setImageVersion((version) => version + 1));
+    };
+
+    const handleMusicChange = (e) => {
+        const file = e.target.files[0];
+        e.target.value = "";
+        if (!file) {
+            return;
+        }
+
+        const formData = new FormData();
+        formData.append("music", file);
+
+        fetch(`http://localhost:3001/uploadMusic/${person}/${category}/${year}`, {
+            method: "POST",
+            body: formData
+        }).then(() => setMusicVersion((version) => version + 1));
     };
 
     const performanceCategories = ["game_performance", "cine_performance"];
@@ -163,6 +183,19 @@ const WinnerDetails = () => {
 
     return (
         <div className="WinnerDetails">
+            {hasMusic && (
+                <>
+                    <a className="musicUpload" onClick={() => musicInputRef.current?.click()}>Dodaj muzykę</a>
+                    <input
+                        type="file"
+                        accept=".mp3,audio/mpeg"
+                        ref={musicInputRef}
+                        onChange={handleMusicChange}
+                        style={{ display: "none" }}
+                    />
+                    <audio key={musicVersion} src={`/music/${person}/${year}/${category}.mp3?v=${musicVersion}`} autoPlay />
+                </>
+            )}
             <AddField className="title" value={winner.title} placeholder="Dodaj tytuł" onSave={(value) => saveField("title", value)} />
             <div className={`content${performanceCategories.includes(category) ? " compactContent" : ""}`}>
                 {renderContent()}
