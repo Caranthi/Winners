@@ -1,0 +1,24 @@
+@import '../Consts.css';
+
+.CaptionedImage {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 45%;
+}
+
+.CaptionedImage .caption {
+    font-size: var(--font-size-category);
+    color: var(--colour-text);
+    font-weight: bold;
+    text-align: center;
+    cursor: pointer;
+    margin: 0 0 2% 0;
+}
+
+.CaptionedImage img {
+    width: 100%;
+    height: 500px;
+    border-radius: 1.5%;
+    cursor: pointer;
+}

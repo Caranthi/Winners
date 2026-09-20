@@ -38,17 +38,23 @@ app.get("/:mode/:category/:year", (req, res) => {
 
     res.json(entry);
 });
-app.post("/upload/:person/:category/:year", upload.single("image"), (req, res) => {
+const handleUpload = (req, res) => {
     if (!req.file) {
         return res.status(400).json({ message: "No image provided" });
     }
 
+    const filename = req.params.variant
+        ? `${req.params.category}_${req.params.variant}.jpg`
+        : `${req.params.category}.jpg`;
+
     const dir = path.join(IMAGES_DIR, req.params.person, req.params.year);
     fs.mkdirSync(dir, { recursive: true });
-    fs.writeFileSync(path.join(dir, `${req.params.category}.jpg`), req.file.buffer);
+    fs.writeFileSync(path.join(dir, filename), req.file.buffer);
 
     res.status(201).json({ message: "Uploaded" });
-});
+};
+app.post("/upload/:person/:category/:year", upload.single("image"), handleUpload);
+app.post("/upload/:person/:category/:year/:variant", upload.single("image"), handleUpload);
 app.post("/addYear/:year", (req, res) => {
     const data = readData();
 

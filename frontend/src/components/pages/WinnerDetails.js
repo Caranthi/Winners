@@ -2,12 +2,14 @@ import React, { useEffect, useRef, useState } from "react";
 import { useParams } from "react-router-dom";
 import consts from '../../consts.json';
 import AddField from "../atoms/AddField.js";
+import CaptionedImage from "../atoms/CaptionedImage.js";
 
 import '../../styles/pages/WinnerDetails.css';
 const WinnerDetails = () => {
     const { person, year, category } = useParams();
     const [winner, setWinner] = useState(null);
     const [imageVersion, setImageVersion] = useState(0);
+    const [actorVersion, setActorVersion] = useState(0);
     const fileInputRef = useRef(null);
     const urlSource = category === "book" ? "Link do Lubimy Czytać: " : "";
     const videoCategories = ["song", "game", "game_music", "sound_design"];
@@ -49,6 +51,17 @@ const WinnerDetails = () => {
         }
     };
 
+    const uploadImage = (file, variant, onDone) => {
+        const formData = new FormData();
+        formData.append("image", file);
+
+        const url = variant
+            ? `http://localhost:3001/upload/${person}/${category}/${year}/${variant}`
+            : `http://localhost:3001/upload/${person}/${category}/${year}`;
+
+        fetch(url, { method: "POST", body: formData }).then(onDone);
+    };
+
     const handleFileChange = (e) => {
         const file = e.target.files[0];
         e.target.value = "";
@@ -56,19 +69,33 @@ const WinnerDetails = () => {
             return;
         }
 
-        const formData = new FormData();
-        formData.append("image", file);
-
-        fetch(`http://localhost:3001/upload/${person}/${category}/${year}`, {
-            method: "POST",
-            body: formData
-        }).then(() => setImageVersion((version) => version + 1));
+        uploadImage(file, undefined, () => setImageVersion((version) => version + 1));
     };
 
-    return (
-        <div className="WinnerDetails">
-            <AddField className="title" value={winner.title} placeholder="Dodaj tytuł" onSave={(value) => saveField("title", value)} />
-            <div className="content">
+    const renderContent = () => {
+        if (category === "game_performance") {
+            return (
+                <>
+                    <CaptionedImage
+                        captionValue={winner.character}
+                        captionPlaceholder="postać"
+                        onSaveCaption={(value) => saveField("character", value)}
+                        src={`/images/${person}/${year}/${category}.jpg?v=${imageVersion}`}
+                        onUpload={(file) => uploadImage(file, undefined, () => setImageVersion((v) => v + 1))}
+                    />
+                    <CaptionedImage
+                        captionValue={winner.actor}
+                        captionPlaceholder="aktor"
+                        onSaveCaption={(value) => saveField("actor", value)}
+                        src={`/images/${person}/${year}/${category}_aktor.jpg?v=${actorVersion}`}
+                        onUpload={(file) => uploadImage(file, "aktor", () => setActorVersion((v) => v + 1))}
+                    />
+                </>
+            );
+        }
+
+        return (
+            <>
                 <img
                     className="detailsImage"
                     src={`/images/${person}/${year}/${category}.jpg?v=${imageVersion}`}
@@ -109,6 +136,15 @@ const WinnerDetails = () => {
                             )
                         : <AddField className="url" placeholder="Dodaj link" onSave={(value) => saveField("url", value)} />}
                 </div>
+            </>
+        );
+    };
+
+    return (
+        <div className="WinnerDetails">
+            <AddField className="title" value={winner.title} placeholder="Dodaj tytuł" onSave={(value) => saveField("title", value)} />
+            <div className="content">
+                {renderContent()}
             </div>
         </div>
     );

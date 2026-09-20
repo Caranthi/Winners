@@ -451,8 +451,8 @@
     "game_visuals": [
       {
         "year": "2018",
-        "title": "",
-        "description": "",
+        "title": "Wiedźmin 3",
+        "description": "Gra RPG stanowiąca trzecią część przygód Geralta z Rivii. Podobnie jak we wcześniejszych odsłonach cyklu, Wiedźmin 3: Dziki Gon bazuje na motywach twórczości literackiej Andrzeja Sapkowskiego, jednak nie jest bezpośrednią adaptacją żadnej z jego książek. Fabuła gry koncentruje się na kilku wątkach dotyczących m.in. utraconej miłości Geralta, inwazji Nilfgaardu na Królestwa Północy oraz tytułowego, mitycznego gonu.",
         "url": ""
       },
       {
@@ -507,9 +507,9 @@
     "sound_design": [
       {
         "year": "2018",
-        "title": "",
-        "description": "",
-        "url": ""
+        "title": "Wiedźmin 3",
+        "description": "Gra RPG stanowiąca trzecią część przygód Geralta z Rivii. Podobnie jak we wcześniejszych odsłonach cyklu, Wiedźmin 3: Dziki Gon bazuje na motywach twórczości literackiej Andrzeja Sapkowskiego, jednak nie jest bezpośrednią adaptacją żadnej z jego książek. Fabuła gry koncentruje się na kilku wątkach dotyczących m.in. utraconej miłości Geralta, inwazji Nilfgaardu na Królestwa Północy oraz tytułowego, mitycznego gonu.",
+        "url": "https://youtu.be/EMMgOB5MJjg?si=8weo-wfQhVusOubX"
       },
       {
         "year": "2019",
@@ -563,9 +563,11 @@
     "game_performance": [
       {
         "year": "2018",
-        "title": "",
+        "title": "Wiedźmin 3",
         "description": "",
-        "url": ""
+        "url": "",
+        "character": "Geralt",
+        "actor": "Jacek Rozenek"
       },
       {
         "year": "2019",
@@ -620,7 +622,7 @@
       {
         "year": "2018",
         "title": "Wiedźmin 3",
-        "description": "Test",
+        "description": "Gra RPG stanowiąca trzecią część przygód Geralta z Rivii. Podobnie jak we wcześniejszych odsłonach cyklu, Wiedźmin 3: Dziki Gon bazuje na motywach twórczości literackiej Andrzeja Sapkowskiego, jednak nie jest bezpośrednią adaptacją żadnej z jego książek. Fabuła gry koncentruje się na kilku wątkach dotyczących m.in. utraconej miłości Geralta, inwazji Nilfgaardu na Królestwa Północy oraz tytułowego, mitycznego gonu.",
         "url": "https://youtu.be/EMMgOB5MJjg?si=lvkNBcNkpM_GZNs3"
       },
       {
@@ -675,9 +677,9 @@
     "game_music": [
       {
         "year": "2018",
-        "title": "",
-        "description": "",
-        "url": ""
+        "title": "Wiedźmin 3",
+        "description": "Gra RPG stanowiąca trzecią część przygód Geralta z Rivii. Podobnie jak we wcześniejszych odsłonach cyklu, Wiedźmin 3: Dziki Gon bazuje na motywach twórczości literackiej Andrzeja Sapkowskiego, jednak nie jest bezpośrednią adaptacją żadnej z jego książek. Fabuła gry koncentruje się na kilku wątkach dotyczących m.in. utraconej miłości Geralta, inwazji Nilfgaardu na Królestwa Północy oraz tytułowego, mitycznego gonu.",
+        "url": "https://youtu.be/EMMgOB5MJjg?si=8weo-wfQhVusOubX"
       },
       {
         "year": "2019",
