@@ -115,9 +115,9 @@
     "series": [
       {
         "year": "2018",
-        "title": "",
-        "description": "",
-        "url": ""
+        "title": "Gra o Tron",
+        "description": "Test",
+        "url": "Test"
       },
       {
         "year": "2019",
@@ -171,9 +171,10 @@
     "series_music": [
       {
         "year": "2018",
-        "title": "",
-        "description": "",
-        "url": ""
+        "title": "Gra o Tron",
+        "description": "Test",
+        "url": "",
+        "composer": "Ramin Djawadi"
       },
       {
         "year": "2019",
@@ -227,9 +228,9 @@
     "movie": [
       {
         "year": "2018",
-        "title": "",
-        "description": "",
-        "url": ""
+        "title": "Avengers: Infinity War",
+        "description": "Test",
+        "url": "Test"
       },
       {
         "year": "2019",
@@ -283,9 +284,10 @@
     "movie_music": [
       {
         "year": "2018",
-        "title": "",
-        "description": "",
-        "url": ""
+        "title": "Star Wars: Zemsta Sithów",
+        "description": "Test",
+        "url": "",
+        "composer": "John Williams"
       },
       {
         "year": "2019",
@@ -339,9 +341,11 @@
     "cine_performance": [
       {
         "year": "2018",
-        "title": "",
+        "title": "Gra o Tron",
         "description": "",
-        "url": ""
+        "url": "",
+        "character": "Ramsay Bolton",
+        "actor": "Iwan Rheon"
       },
       {
         "year": "2019",
@@ -395,9 +399,9 @@
     "purr_cinema": [
       {
         "year": "2018",
-        "title": "",
-        "description": "",
-        "url": ""
+        "title": "Avengers: Infinity War",
+        "description": "Test",
+        "url": "Test"
       },
       {
         "year": "2019",

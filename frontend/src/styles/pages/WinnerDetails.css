@@ -25,6 +25,10 @@
     justify-content: space-between;
 }
 
+.compactContent {
+    margin-top: 0.5%;
+}
+
 .detailsImage {
     width: 45%;
     border-radius: 1.5%;
@@ -66,6 +70,10 @@
 
 .content>.CaptionedImage {
     width: 45%;
+}
+
+.content>.CaptionedImage img {
+    height: 550px;
 }
 
 .details .CaptionedImage img {

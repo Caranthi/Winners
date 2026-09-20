@@ -12,10 +12,16 @@ const WinnerDetails = () => {
     const [actorVersion, setActorVersion] = useState(0);
     const [composerVersion, setComposerVersion] = useState(0);
     const fileInputRef = useRef(null);
-    const urlSource = category === "book" ? "Link do Lubimy Czytać: " : "";
+    const filmwebCategories = ["movie", "series", "purr_cinema"];
+    const urlSource = category === "book"
+        ? "Link do Lubimy Czytać: "
+        : filmwebCategories.includes(category)
+            ? "Link do Filmweb: "
+            : "";
     const videoCategories = ["song", "game", "sound_design"];
     const isVideoCategory = videoCategories.includes(category);
-    const isComposerCategory = category === "game_music";
+    const composerCategories = ["game_music", "movie_music", "series_music"];
+    const isComposerCategory = composerCategories.includes(category);
     const showDescription = category !== "song";
 
     const apiUrl = `http://localhost:3001/${person.toLowerCase()}/${category}/${year}`;
@@ -74,8 +80,10 @@ const WinnerDetails = () => {
         uploadImage(file, undefined, () => setImageVersion((version) => version + 1));
     };
 
+    const performanceCategories = ["game_performance", "cine_performance"];
+
     const renderContent = () => {
-        if (category === "game_performance") {
+        if (performanceCategories.includes(category)) {
             return (
                 <>
                     <CaptionedImage
@@ -156,7 +164,7 @@ const WinnerDetails = () => {
     return (
         <div className="WinnerDetails">
             <AddField className="title" value={winner.title} placeholder="Dodaj tytuł" onSave={(value) => saveField("title", value)} />
-            <div className="content">
+            <div className={`content${performanceCategories.includes(category) ? " compactContent" : ""}`}>
                 {renderContent()}
             </div>
         </div>
