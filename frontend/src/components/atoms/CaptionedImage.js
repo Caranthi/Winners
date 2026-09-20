@@ -2,7 +2,7 @@ import React, { useRef } from "react";
 import AddField from "./AddField.js";
 
 import '../../styles/atoms/CaptionedImage.css';
-const CaptionedImage = ({ captionValue, captionPlaceholder, onSaveCaption, src, onUpload }) => {
+const CaptionedImage = ({ captionValue, captionPrefix, captionPlaceholder, onSaveCaption, src, onUpload }) => {
     const fileInputRef = useRef(null);
 
     const handleFileChange = (e) => {
@@ -15,7 +15,7 @@ const CaptionedImage = ({ captionValue, captionPlaceholder, onSaveCaption, src, 
 
     return (
         <div className="CaptionedImage">
-            <AddField className="caption" value={captionValue} placeholder={captionPlaceholder} onSave={onSaveCaption} />
+            <AddField className="caption" value={captionValue} valuePrefix={captionPrefix} placeholder={captionPlaceholder} onSave={onSaveCaption} />
             <img
                 src={src}
                 alt=""

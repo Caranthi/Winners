@@ -32,5 +32,5 @@
 }
 
 .Thumbnail:hover {
-    color: var(--colour-white);
+    color: var(--colour-hover);
 }

@@ -59,8 +59,18 @@
 
 .urlRow,
 .AddField.url,
-.youtube {
+.youtube,
+.details .CaptionedImage {
     margin-top: 4%;
+}
+
+.content>.CaptionedImage {
+    width: 45%;
+}
+
+.details .CaptionedImage img {
+    height: 300px;
+    width: 60%;
 }
 
 .urlSource {

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
 import '../../styles/atoms/AddField.css';
-const AddField = ({ value, placeholder, onSave, className, multiline }) => {
+const AddField = ({ value, valuePrefix, placeholder, onSave, className, multiline }) => {
     const [editing, setEditing] = useState(false);
     const [draft, setDraft] = useState(value || "");
 
@@ -42,7 +42,7 @@ const AddField = ({ value, placeholder, onSave, className, multiline }) => {
     if (value) {
         return (
             <a className={className} onClick={startEditing}>
-                {value}
+                {valuePrefix}{value}
             </a>
         );
     }
