@@ -42,8 +42,12 @@
     width: 45%;
 }
 
-.details > :first-child {
+.details> :first-child {
     margin-top: 0;
+}
+
+.centeredDetails {
+    align-self: center;
 }
 
 .description {
@@ -76,8 +80,7 @@
 
 .youtube {
     width: 100%;
-    height: 250px;
-    margin-top: 5%;
+    height: 350px;
     border: none;
     border-radius: 1.5%;
 }

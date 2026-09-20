@@ -83,7 +83,7 @@ const WinnerDetails = () => {
                     ref={fileInputRef}
                     onChange={handleFileChange}
                 />
-                <div className="details">
+                <div className={`details${category === "song" ? " centeredDetails" : ""}`}>
                     {category !== "song" && (
                         <AddField className="description" value={winner.description} placeholder="Dodaj opis" multiline onSave={(value) => saveField("description", value)} />
                     )}

@@ -36,14 +36,14 @@
         "CATEGORY_LABELS": {
             "game_visuals": "Zachwyt wizualny",
             "sound_design": "Sound design",
-            "game_performance": "Rola growa",
+            "game_performance": "Performance",
             "game": "Gra",
             "game_music": "Muzyka z gry",
             "series": "Serial",
             "series_music": "Muzyka z serialu",
             "movie": "Film",
             "movie_music": "Muzyka z filmu",
-            "cine_performance": "Rola aktorska",
+            "cine_performance": "Performance",
             "purr_cinema": "Purr Cinema",
             "book": "Książka",
             "song": "Piosenka"
