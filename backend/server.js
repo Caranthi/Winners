@@ -8,8 +8,8 @@ const { title } = require("process");
 const app = express();
 const PORT = 3001;
 const DATA = "./data.json";
-const IMAGES_DIR = path.join(__dirname, "../frontend/public/images");
-const MUSIC_DIR = path.join(__dirname, "../frontend/public/music");
+const IMAGES_DIR = process.env.IMAGES_DIR || path.join(__dirname, "../frontend/public/images");
+const MUSIC_DIR = process.env.MUSIC_DIR || path.join(__dirname, "../frontend/public/music");
 const upload = multer({ storage: multer.memoryStorage() });
 
 app.use(cors());

@@ -1,0 +1,21 @@
+services:
+  backend:
+    build: ./backend
+    ports:
+      - "3001:3001"
+    environment:
+      - IMAGES_DIR=/uploads/images
+      - MUSIC_DIR=/uploads/music
+    volumes:
+      - ./frontend/public/images:/uploads/images
+      - ./frontend/public/music:/uploads/music
+
+  frontend:
+    build: ./frontend
+    depends_on:
+      - backend
+    ports:
+      - "3000:80"
+    volumes:
+      - ./frontend/public/images:/usr/share/nginx/html/images
+      - ./frontend/public/music:/usr/share/nginx/html/music
