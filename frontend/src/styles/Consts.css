@@ -1,6 +1,6 @@
 :root {
     /*For change*/
-    --font-style: Amiri;
+    --font-style: 'Amiri', serif;
 
     --font-size-subtitle: 40px;
     --font-size-title: 60px;
