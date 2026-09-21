@@ -7,7 +7,7 @@ const { title } = require("process");
 
 const app = express();
 const PORT = 3001;
-const DATA = "./data.json";
+const DATA = process.env.DATA_FILE || "./data.json";
 const IMAGES_DIR = process.env.IMAGES_DIR || path.join(__dirname, "../frontend/public/images");
 const MUSIC_DIR = process.env.MUSIC_DIR || path.join(__dirname, "../frontend/public/music");
 const upload = multer({ storage: multer.memoryStorage() });

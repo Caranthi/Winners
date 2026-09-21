@@ -6,7 +6,9 @@ services:
     environment:
       - IMAGES_DIR=/uploads/images
       - MUSIC_DIR=/uploads/music
+      - DATA_FILE=/data/data.json
     volumes:
+      - ./backend/data.json:/data/data.json
       - ./frontend/public/images:/uploads/images
       - ./frontend/public/music:/uploads/music
 
