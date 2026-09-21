@@ -3,7 +3,7 @@ import consts from '../../consts.json';
 import { useNavigate } from "react-router-dom";
 
 import '../../styles/atoms/Thumbnail.css';
-const Thumbnail = ({ person, year, category, small }) => {
+const Thumbnail = ({ person, year, category, small, hideImage }) => {
     const navigate = useNavigate();
 
     const moveToDetails = () => {
@@ -14,7 +14,7 @@ const Thumbnail = ({ person, year, category, small }) => {
         <div className="Thumbnail" onClick={moveToDetails}>
             <img
                 className={`image${small ? " small" : ""}`}
-                src={`/images/${person}/${year}/${category}.jpg`}
+                src={hideImage ? "/images/placeholder.jpg" : `/images/${person}/${year}/${category}.jpg`}
                 alt=""
                 onError={(e) => {
                     e.target.onerror = null;

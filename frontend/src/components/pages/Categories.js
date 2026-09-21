@@ -4,9 +4,11 @@ import consts from '../../consts.json';
 import '../../styles/pages/Categories.css';
 import { useParams } from "react-router-dom";
 import ThematicCategories from "../organisms/ThematicCategories";
+import { useHideImages } from "../../context/HideImagesContext";
 const Categories = () => {
     const { year } = useParams();
     const { person } = useParams();
+    const { hideImages, setHideImages } = useHideImages();
     const gamingTitle = "Gaming";
     const cinemaTitle = "Kinematografia";
     const otherTitle = "Inne";
@@ -18,9 +20,13 @@ const Categories = () => {
 
         <div className="Categories">
             <a className="title">{consts.CONSTS.TITLE}</a>
-            <ThematicCategories year={year} person={person} title={gamingTitle} categories={gamingCategories} />
-            <ThematicCategories year={year} person={person} title={cinemaTitle} categories={cinemaCategories} />
-            <ThematicCategories year={year} person={person} title={otherTitle} categories={otherCategories} smallThumbnails />
+            <div className="hideToggle" onClick={() => setHideImages(!hideImages)}>
+                <span>Ukryj</span>
+                <div className={`hideToggleBox${hideImages ? " checked" : ""}`} />
+            </div>
+            <ThematicCategories year={year} person={person} title={gamingTitle} categories={gamingCategories} hideImages={hideImages} />
+            <ThematicCategories year={year} person={person} title={cinemaTitle} categories={cinemaCategories} hideImages={hideImages} />
+            <ThematicCategories year={year} person={person} title={otherTitle} categories={otherCategories} smallThumbnails hideImages={hideImages} />
         </div>
     );
 };

@@ -1,6 +1,7 @@
 @import '../Consts.css';
 
-.Categories{
+.Categories {
+    position: relative;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -10,4 +11,27 @@
 
 .Categories .title {
     font-size: var(--font-size-edit);
+}
+
+.hideToggle {
+    position: absolute;
+    top: 2%;
+    left: 2%;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    color: var(--colour-text);
+    font-size: var(--font-size-label);
+    cursor: pointer;
+}
+
+.hideToggleBox {
+    width: 16px;
+    height: 16px;
+    border: solid 1px var(--colour-border);
+    border-radius: 1px;
+}
+
+.hideToggleBox.checked {
+    background-color: var(--colour-border);
 }
